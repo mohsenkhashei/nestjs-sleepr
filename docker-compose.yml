@@ -1,0 +1,14 @@
+version: '3.8'
+name: nestjs-sleepr
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-sleepr
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
