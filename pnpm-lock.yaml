@@ -37,6 +37,9 @@ devDependencies:
   '@nestjs/cli':
     specifier: ^9.0.0
     version: 9.0.0
+  '@nestjs/mapped-types':
+    specifier: ^2.0.2
+    version: 2.0.2(@nestjs/common@9.0.0)(reflect-metadata@0.1.13)
   '@nestjs/schematics':
     specifier: ^9.0.0
     version: 9.0.0(typescript@5.0.2)
@@ -909,6 +912,23 @@ packages:
       uuid: 8.3.2
     transitivePeerDependencies:
       - encoding
+
+  /@nestjs/mapped-types@2.0.2(@nestjs/common@9.0.0)(reflect-metadata@0.1.13):
+    resolution: {integrity: sha512-V0izw6tWs6fTp9+KiiPUbGHWALy563Frn8X6Bm87ANLRuE46iuBMD5acKBDP5lKL/75QFvrzSJT7HkCbB0jTpg==}
+    peerDependencies:
+      '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
+      class-transformer: ^0.4.0 || ^0.5.0
+      class-validator: ^0.13.0 || ^0.14.0
+      reflect-metadata: ^0.1.12
+    peerDependenciesMeta:
+      class-transformer:
+        optional: true
+      class-validator:
+        optional: true
+    dependencies:
+      '@nestjs/common': 9.0.0(reflect-metadata@0.1.13)(rxjs@7.2.0)
+      reflect-metadata: 0.1.13
+    dev: true
 
   /@nestjs/mongoose@10.0.0(@nestjs/common@9.0.0)(@nestjs/core@9.0.0)(mongoose@7.3.1)(reflect-metadata@0.1.13)(rxjs@7.2.0):
     resolution: {integrity: sha512-Wqinhuess5AKGUTs5gtJxs+naXv1BBxADTBw8h6hPAdCkPL/knoIpo0cSxBNJ4COwRqpy4QWGilzPiPR0sJgJA==}
