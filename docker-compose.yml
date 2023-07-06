@@ -1,14 +1,13 @@
-version: '3.8'
-name: nestjs-sleepr
 services:
-  mongodb:
-    image: mongo:latest
-    container_name: mongodb-sleepr
-    restart: unless-stopped
+  reservations:
+    build:
+      context: .
+      dockerfile: ./apps/reservations/Dockerfile
+      target: development
+    command: pnpm run start:dev reservations
     ports:
-      - 27017:27017
+      - '3000:3000'
     volumes:
-      - mongodb_data:/data/db
-
-volumes:
-  mongodb_data:
+      - .:/usr/src/app
+  mongo:
+    image: mongo
