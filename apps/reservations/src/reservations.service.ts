@@ -9,23 +9,23 @@ export class ReservationsService {
     private readonly reservationRespository: ReservationsRepository,
   ) {}
 
-  create(createReservationDto: CreateReservationDto) {
+  async create(createReservationDto: CreateReservationDto, userId: string) {
     return this.reservationRespository.create({
       ...createReservationDto,
       timestamp: new Date(),
-      userId: '123',
+      userId,
     });
   }
 
-  findAll() {
+  async findAll() {
     return this.reservationRespository.find({});
   }
 
-  findOne(_id: string) {
+  async findOne(_id: string) {
     return this.reservationRespository.findOne({ _id });
   }
 
-  update(_id: string, updateReservationDto: UpdateReservationDto) {
+  async update(_id: string, updateReservationDto: UpdateReservationDto) {
     return this.reservationRespository.findOneAndUpdate(
       {
         _id,
@@ -34,7 +34,7 @@ export class ReservationsService {
     );
   }
 
-  remove(_id: string) {
+  async remove(_id: string) {
     return this.reservationRespository.findOneAndDelete({ _id });
   }
 }
