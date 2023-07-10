@@ -1,19 +1,18 @@
-FROM node:alpine AS development
+FROM node:lts AS development
 
 WORKDIR /usr/src/app
 
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN npm install -g yarn
-RUN yarn 
+RUN yarn install 
 
 COPY . .
 
 RUN yarn run build
 
 
-FROM node:alpine AS production
+FROM node:lts AS production
 
 ARG NODE_ENV=production
 
@@ -24,8 +23,7 @@ WORKDIR /usr/src/app
 COPY package.json ./
 COPY yarn.lock ./
 
-RUN npm install -g yarn
-RUN yarn --prod
+RUN yarn install --prod
 
 COPY --from=development /usr/src/app/dist ./dist
 
