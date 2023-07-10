@@ -1,10 +1,13 @@
 services:
+  mongo:
+    image: mongo
+
   reservations:
     build:
       context: .
       dockerfile: ./apps/reservations/Dockerfile
       target: development
-    command: pnpm run start:dev reservations
+    command: yarn run start:dev reservations
     env_file:
       - './apps/reservations/.env'
     ports:
@@ -17,7 +20,7 @@ services:
       context: .
       dockerfile: ./apps/auth/Dockerfile
       target: development
-    command: pnpm run start:dev auth
+    command: yarn run start:dev auth
     env_file:
       - './apps/auth/.env'
     ports:
@@ -25,5 +28,15 @@ services:
     volumes:
       - .:/usr/src/app
 
-  mongo:
-    image: mongo
+  payments:
+    build:
+      context: .
+      dockerfile: ./apps/payments/Dockerfile
+      target: development
+    command: yarn run start:dev payments
+    env_file:
+      - './apps/payments/.env'
+    ports:
+      - '3003:3003'
+    volumes:
+      - .:/usr/src/app
