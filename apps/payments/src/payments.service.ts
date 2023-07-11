@@ -42,7 +42,10 @@ export class PaymentsService {
     //fake part
     const paymentIntent = paymentMethodsResponse;
 
-    this.notificationsService.emit('notify_email', { email });
+    this.notificationsService.emit('notify_email', {
+      email,
+      text: `Your payment of $${amount} has completed successfully`,
+    });
 
     return paymentIntent;
   }
