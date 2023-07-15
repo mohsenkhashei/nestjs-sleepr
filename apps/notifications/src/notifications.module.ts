@@ -8,7 +8,7 @@ import { LoggerModule } from '@app/common/logger/logger.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: [`./apps/payments/.env`],
+      envFilePath: [`./apps/notifications/.env`],
       isGlobal: true,
       validationSchema: Joi.object({
         PORT: Joi.number().required(),
