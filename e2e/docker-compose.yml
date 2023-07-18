@@ -1,0 +1,45 @@
+services:
+  e2e:
+    build:
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./specs:/usr/src/app/specs
+    depends_on:
+      - mongo
+      - reservations
+      - auth
+      - payments
+      - notifications
+
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+
+  reservations:
+    image: sleepr_reservations
+    env_file:
+      - '../apps/reservations/.env'
+    ports:
+      - '3000:3000'
+
+  auth:
+    image: sleepr_auth
+    env_file:
+      - '../apps/auth/.env'
+    ports:
+      - '3001:3001'
+
+  payments:
+    image: sleepr_payments
+    env_file:
+      - '../apps/payments/.env'
+    ports:
+      - '3003:3003'
+
+  notifications:
+    image: sleepr_notifications
+    env_file:
+      - '../apps/notifications/.env'
+    ports:
+      - '3004:3004'
