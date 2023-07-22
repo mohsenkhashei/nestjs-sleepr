@@ -50,3 +50,7 @@ $ docker-compose up e2e --build
 # get log of each service
 $ docker container logs containerName
 ```
+
+## Postman
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1566887-dd6ca9a1-7464-4a07-81b7-0bcbf6c80037?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D1566887-dd6ca9a1-7464-4a07-81b7-0bcbf6c80037%26entityType%3Dcollection%26workspaceId%3Df20b8551-2f10-4363-b926-f1d77d8643ff)
